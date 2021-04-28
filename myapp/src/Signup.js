@@ -1,9 +1,15 @@
 // import axios from 'axios';
-import React from "react";
-
+import React,{useState} from "react";
 
 function Signup(){
-    
+const [UserName,setuserName]= useState('');
+const [password,setPassword]= useState('');
+
+
+    const login =()=>{
+       alert(UserName);
+       alert(password);
+    }
     // const pressHandler=()=>{
     //      axios.post('https://reqres.in/api/login',{
     //                  "email": "",
@@ -19,25 +25,26 @@ function Signup(){
     // .catch(function(error){
     // console.log(error);
     // });
-    // }
+    // } 
     return(
         <div className="form">
             <h1>Login Here</h1>
             <div className="box">
                 <i className="fa fa-envelope-o"></i>
-                <input type="Username" placeholder="Username" name="Username"/>	
+                <input type="Username" placeholder="Username" name="Username" onChange={(e)=>setuserName(e.target.value)}/>	
             </div>
             <div className="box">
                 <i className="fa fa-key" aria-hidden="true"></i>
-                <input type="password" placeholder="Password" name="password" id="myInput"/>
+                <input type="password" placeholder="Password" name="password" id="myInput"  onChange={(e)=>setPassword(e.target.value)}/>
             <span class="eye" onclick="myfunction()">
 				<i id="hide1" class="fa fa-eye"></i>
 				<i id="hide2" class="fa fa-eye-slash"></i>
 			</span>
             </div>
-            <button type="button" className="btn">LOGIN</button>   
+            <button type="button" className="btn" onClick={()=>login()}>LOGIN</button>   
         </div>    
-
+        
     ); 
 }
 export default Signup;
+
